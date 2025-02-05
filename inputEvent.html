@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Event</title>
+    <style>
+         body{
+        height: 100vh;
+        width: 100vw;
+        font-style: italic;
+        font-family: cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      background-image: url("https://i.pinimg.com/736x/b8/d3/ed/b8d3ed625bb7d74f200fc12cd90727d7.jpg");
+        background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+
+       }
+       section{
+        /* border-left: 10px ridge rgb(160, 7, 7); */
+        color: rgb(0, 0, 0);
+        background-image: url("https://i.pinimg.com/736x/37/c4/9c/37c49cc02c979891843d826da91c192e.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-width: 250px;
+        min-height: 200px;
+        font-size: large;
+        font-weight: 700;
+        text-align: center;
+        justify-content:center;
+        position: absolute;
+        padding: 100px;
+    
+       }
+    </style>
+</head>
+
+
+<body>
+    <section>
+        <input id="myInput" type="text" placeholder="Type Something...." name="username" autocomplete="off">
+        <div class="output">
+            <div class="inputValue">Input Value :</div>
+            <div class="inputName">Input Name :</div>
+            <div class="inputType">Input Type :</div>
+            <div class="eventType">Event Type :</div>
+        </div>
+    </section>
+    <script>
+              let myInput = document.getElementById("myInput");
+
+              let handelKey = (event) => {
+                console.log(event);
+                console.log("Input Value :",event.target.value);
+                console.log("Input Name :",event.target.name);
+                console.log("Input Type :",event.inputType);
+                console.log("Event Type :",event.type);
+
+                document.querySelector(".inputValue").textContent = `Input Value :${event.target.value}`;
+                document.querySelector(".inputName").textContent = `Input Name :${event.target.name}`;
+                document.querySelector(".inputType").textContent = `Input Type :${event.inputType}`;
+                document.querySelector(".eventType").textContent = `Event Type :${event.type}`; 
+                
+                
+              }
+
+              myInput.addEventListener("input",handelKey);
+
+    </script>
+</body>
+
+</html>
